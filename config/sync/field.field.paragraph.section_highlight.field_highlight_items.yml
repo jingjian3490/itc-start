@@ -1,0 +1,49 @@
+uuid: 1acf7925-a20f-462e-9903-d4b0595fdd0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_highlight_items
+    - paragraphs.paragraphs_type.highlight_item
+    - paragraphs.paragraphs_type.section_highlight
+  module:
+    - entity_reference_revisions
+id: paragraph.section_highlight.field_highlight_items
+field_name: field_highlight_items
+entity_type: paragraph
+bundle: section_highlight
+label: Items
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      highlight_item: highlight_item
+    negate: 0
+    target_bundles_drag_drop:
+      carousel_item:
+        weight: 8
+        enabled: false
+      highlight_item:
+        weight: 9
+        enabled: true
+      pillar_item:
+        weight: 10
+        enabled: false
+      section_highlight:
+        weight: 11
+        enabled: false
+      section_pillars:
+        weight: 12
+        enabled: false
+      section_text:
+        weight: 13
+        enabled: false
+      value_item:
+        weight: 14
+        enabled: false
+field_type: entity_reference_revisions

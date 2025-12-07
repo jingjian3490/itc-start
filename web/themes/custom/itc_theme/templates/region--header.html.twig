@@ -1,0 +1,11 @@
+{#
+Region: Header
+Layout: Flexbox container for Branding, Menu, Lang, Contact
+#}
+{% if content %}
+  <header class="header fixed top-0 left-0 z-50 bg-white w-full transition-all duration-300" id="header">
+    <div class="container h-[80px] flex items-center justify-between px-[20px] md:px-[30px]">
+      {{ content }}
+    </div>
+  </header>
+{% endif %}

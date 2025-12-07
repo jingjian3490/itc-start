@@ -1,0 +1,26 @@
+uuid: 87cdf77f-ea3b-4548-a70a-7c6ac8c01bde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mind
+    - filter.format.basic_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - text
+id: paragraph.carousel_item.field_mind
+field_name: field_mind
+entity_type: paragraph
+bundle: carousel_item
+label: Mind
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

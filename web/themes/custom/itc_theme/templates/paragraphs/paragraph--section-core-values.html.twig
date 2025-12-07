@@ -1,0 +1,38 @@
+{#
+Pattern: section_core_values
+Fields: field_title, field_description, field_value_items
+#}
+<div class="paragraph-section-core-values bg-itc-light-gray py-[50px] px-[15px] md:py-[100px] md:px-[150px]">
+  <div class="max-w-[1200px] mx-auto">
+
+    {# === Section Header (Centered) === #}
+    <div class="text-center mb-[50px]">
+      {% if content.field_title|render %}
+        <h2 class="font-['Ubuntu',sans-serif] font-bold text-[30px] leading-[36px] text-itc-black mb-0">
+          {{ content.field_title }}
+        </h2>
+      {% endif %}
+
+      {% if content.field_description|render %}
+        {#
+        DESCRIPTION WIDTH FIX:
+        Add `max-w-[800px] mx-auto`. This will limit the width of the top description text,
+        preventing it from becoming an unreadably long single line on wide screens and forcing it to wrap as it does on the original site.
+        #}
+        <div class="font-['Lato',sans-serif] text-[16px] leading-[30px] text-itc-dark-gray mt-[30px] md:px-[97px] max-w-[1000px] mx-auto">
+          {{ content.field_description }}
+        </div>
+      {% endif %}
+    </div>
+
+    {# === Values List === #}
+    <div class="flex flex-col gap-[40px]">
+      {% for key, item in content.field_value_items %}
+        {% if key|first != '#' %}
+          {{ item }}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,10 @@
+uuid: b82cd5de-0308-499b-93dd-cffc24bcde94
+langcode: en
+status: true
+dependencies: {  }
+id: section_highlight
+label: 'Section: Highlight'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

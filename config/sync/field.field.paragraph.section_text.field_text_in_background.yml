@@ -1,0 +1,26 @@
+uuid: e92ea598-a8c3-4383-8523-404fce663179
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_in_background
+    - filter.format.basic_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.section_text
+  module:
+    - text
+id: paragraph.section_text.field_text_in_background
+field_name: field_text_in_background
+entity_type: paragraph
+bundle: section_text
+label: 'Text in Background'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

@@ -1,0 +1,31 @@
+{# Pattern: section_pillars #}
+<div class="paragraph-section-pillars bg-white py-[50px] px-[15px] md:py-[100px] md:px-[150px]">
+  <div class="max-w-[1200px] mx-auto text-center">
+
+    {# === 1. Section Title === #}
+    {% if content.field_title|render %}
+      <h2 class="font-['Ubuntu',sans-serif] font-bold text-[30px] leading-[36px] text-itc-black mb-0">
+        {{ content.field_title }}
+      </h2>
+    {% endif %}
+
+    {# === 2. Section Description === #}
+    {% if content.field_description|render %}
+      <div class="font-['Lato',sans-serif] text-[16px] leading-[30px] text-itc-dark-gray mt-[30px] md:px-[97px] mb-[30px] md:mb-[50px] space-y-5 [&_p:not(:last-child)]:mb-5">
+        {{ content.field_description }}
+      </div>
+    {% endif %}
+
+    {# === 3. Pillars List (Flexbox Layout) === #}
+    <div class="flex flex-wrap justify-center gap-[30px] text-left">
+      {% for key, item in content.field_pillar_items %}
+        {% if key|first != '#' %}
+          <div class="w-full md:w-[calc(50%-15px)] lg:w-[calc(25%-23px)] flex-grow-0 flex-shrink-0">
+            {{ item }}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

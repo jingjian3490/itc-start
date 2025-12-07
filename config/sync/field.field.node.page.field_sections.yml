@@ -1,0 +1,63 @@
+uuid: 81c5f087-87ee-4a69-bea6-049268ce5ab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sections
+    - node.type.page
+    - paragraphs.paragraphs_type.section_carousel
+    - paragraphs.paragraphs_type.section_core_values
+    - paragraphs.paragraphs_type.section_highlight
+    - paragraphs.paragraphs_type.section_pillars
+    - paragraphs.paragraphs_type.section_text
+  module:
+    - entity_reference_revisions
+id: node.page.field_sections
+field_name: field_sections
+entity_type: node
+bundle: page
+label: Sections
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      section_carousel: section_carousel
+      section_core_values: section_core_values
+      section_highlight: section_highlight
+      section_pillars: section_pillars
+      section_text: section_text
+    negate: 0
+    target_bundles_drag_drop:
+      carousel_item:
+        weight: 10
+        enabled: false
+      highlight_item:
+        weight: 11
+        enabled: false
+      pillar_item:
+        weight: 12
+        enabled: false
+      section_carousel:
+        weight: 13
+        enabled: true
+      section_core_values:
+        weight: 14
+        enabled: true
+      section_highlight:
+        weight: 15
+        enabled: true
+      section_pillars:
+        weight: 16
+        enabled: true
+      section_text:
+        weight: 17
+        enabled: true
+      value_item:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions
