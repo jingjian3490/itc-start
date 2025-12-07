@@ -1,0 +1,52 @@
+uuid: f4169305-6983-4879-8b27-8d346604ec01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_value_items
+    - paragraphs.paragraphs_type.section_core_values
+    - paragraphs.paragraphs_type.value_item
+  module:
+    - entity_reference_revisions
+id: paragraph.section_core_values.field_value_items
+field_name: field_value_items
+entity_type: paragraph
+bundle: section_core_values
+label: Items
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      value_item: value_item
+    negate: 0
+    target_bundles_drag_drop:
+      carousel_item:
+        weight: 9
+        enabled: false
+      highlight_item:
+        weight: 10
+        enabled: false
+      pillar_item:
+        weight: 11
+        enabled: false
+      section_core_values:
+        weight: 12
+        enabled: false
+      section_highlight:
+        weight: 13
+        enabled: false
+      section_pillars:
+        weight: 14
+        enabled: false
+      section_text:
+        weight: 15
+        enabled: false
+      value_item:
+        weight: 16
+        enabled: true
+field_type: entity_reference_revisions

@@ -1,0 +1,39 @@
+{#
+Pattern: value_item (Child)
+Fields: field_image, field_title, field_description
+#}
+<div class="paragraph-value-item">
+  <div class="bg-white rounded-[20px] p-[30px] md:py-[40px] md:px-[30px] flex flex-col md:flex-row items-center md:items-start text-center md:text-left transition-shadow duration-300 hover:shadow-sm w-full max-w-[780px] mx-auto">
+
+    {# === Image / Icon (Left) === #}
+    {% if content.field_image|render %}
+      {#
+      Image Container:
+      - Size: 130px x 130px (Fixed)
+      #}
+      <div class="flex-shrink-0 w-[100px] h-[100px] md:w-[130px] md:h-[130px] mb-[25px] md:mb-0 md:mr-[30px] flex items-center justify-center">
+        <div class="relative w-full h-full flex items-center justify-center [&_img]:max-h-full [&_img]:max-w-full [&_img]:w-auto [&_img]:h-auto [&_img]:object-contain">
+          {{ content.field_image }}
+        </div>
+      </div>
+    {% endif %}
+
+    {# === Content (Right) === #}
+    <div class="flex-grow">
+      {# Title #}
+      {% if content.field_title|render %}
+        <h3 class="font-['Ubuntu',sans-serif] font-bold text-[20px] leading-[28px] text-itc-black mb-[10px]">
+          {{ content.field_title }}
+        </h3>
+      {% endif %}
+
+      {# Description #}
+      {% if content.field_description|render %}
+        <div class="font-['Lato',sans-serif] text-[16px] leading-[30px] text-itc-dark-gray">
+          {{ content.field_description }}
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

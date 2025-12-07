@@ -1,0 +1,22 @@
+uuid: b173f1ae-6e7c-4b73-af2f-866c13b28cf4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.pillar_item
+id: paragraph.pillar_item.status
+field_name: status
+entity_type: paragraph
+bundle: pillar_item
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

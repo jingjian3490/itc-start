@@ -1,0 +1,25 @@
+{#
+Pattern: highlight_item (Child)
+Fields: field_image, field_title
+#}
+<div class="paragraph-highlight-item h-full">
+  <div class="bg-itc-light-gray rounded-[20px] p-[20px] md:p-[30px] flex flex-col items-center justify-center text-center h-full min-h-[300px] md:min-h-0 aspect-auto md:aspect-square overflow-hidden">
+
+    {# === Image / Icon === #}
+    {% if content.field_image|render %}
+      <div class="mb-[20px] h-[300px] w-full flex items-center justify-center">
+        <div class="relative w-full h-full flex items-center justify-center [&_img]:max-h-[300px] [&_img]:w-auto [&_img]:object-contain">
+          {{ content.field_image }}
+        </div>
+      </div>
+    {% endif %}
+
+    {# === Title === #}
+    {% if content.field_title|render %}
+      <h3 class="font-['Ubuntu',sans-serif] font-bold text-[20px] leading-[30px] uppercase tracking-wide text-itc-black">
+        {{ content.field_title }}
+      </h3>
+    {% endif %}
+
+  </div>
+</div>

@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === Base Styles === */
+@layer base {
+  body {
+    font-family: 'Lato', sans-serif;
+    @apply text-itc-dark-gray;
+    /* 默认 Padding (Fixed Header) */
+    padding-top: 80px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+  }
+}
+
+/* === Component Styles === */
+@layer components {
+  .btn-primary {
+    @apply inline-block px-8 py-3 bg-itc-red text-white font-bold text-sm uppercase tracking-wide transition-colors duration-300 hover:bg-itc-dark-red no-underline;
+  }
+  .section-title {
+    @apply font-['Ubuntu'] text-3xl md:text-4xl font-bold mb-6 leading-tight;
+  }
+  .section-desc {
+    @apply font-['Lato'] text-base md:text-lg text-itc-dark-gray max-w-4xl mx-auto mb-10 leading-relaxed;
+  }
+  .field--type-image img {
+    @apply max-w-full h-auto;
+  }
+
+  /* Header Menu Styles */
+  .block-main-menu {
+    ul.menu {
+      @apply flex flex-row gap-6 lg:gap-10 m-0 p-0 list-none;
+
+      li {
+        @apply m-0 p-0 relative;
+
+        a {
+          @apply text-itc-black no-underline transition-colors duration-300 text-base font-bold;
+          font-family: 'Ubuntu', sans-serif;
+
+          &:hover, &.is-active {
+            @apply text-itc-red;
+          }
+        }
+      }
+    }
+  }
+
+  /* Language Switcher Active State */
+  .js-lang-dropdown.active {
+    @apply opacity-100 visible translate-y-0;
+  }
+
+  .js-lang-arrow.rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .region-highlighted {
+    @apply container mx-auto px-[20px] md:px-[30px] pt-6 relative z-40;
+  }
+}
+
+/* === Admin UI Components (Global Scope - Force Apply) === */
+/* 1. Primary Tabs (Targeting by Block ID) */
+/*  ID to HTML: <div id="block-itc-theme-primary-local-tasks"> */
+#block-itc-theme-primary-local-tasks {
+  @apply mb-6 border-b border-gray-200;
+
+  /* Target direct UL child to avoid affecting contextual links */
+  > ul {
+    @apply flex flex-wrap gap-2 list-none p-0 m-0;
+
+    li {
+      @apply m-0 p-0;
+
+      a {
+        @apply block py-2 px-4 text-sm font-medium text-gray-500 bg-gray-50 rounded-t-lg border-b-2 border-transparent hover:text-itc-red hover:border-itc-red hover:bg-white transition-all no-underline;
+
+        &.is-active {
+          @apply text-itc-red border-itc-red bg-white font-bold;
+        }
+      }
+    }
+  }
+}
+
+/* 2. Status Messages */
+/* to HTML: <div class="messages messages--status"> */
+.messages {
+  @apply p-4 mb-6 text-sm rounded-lg border flex items-start gap-3 bg-white shadow-sm;
+
+  &--status {
+    @apply text-green-800 border-green-300 bg-green-50;
+    &::before { content: "✓"; @apply font-bold text-lg leading-none; }
+  }
+
+  &--warning {
+    @apply text-yellow-800 border-yellow-300 bg-yellow-50;
+    &::before { content: "⚠"; @apply font-bold text-lg leading-none; }
+  }
+
+  &--error {
+    @apply text-red-800 border-red-300 bg-red-50;
+    &::before { content: "✕"; @apply font-bold text-lg leading-none; }
+  }
+
+  a { @apply underline font-bold hover:no-underline; }
+}
+
+/* === Drupal Toolbar Overrides (Global Scope) === */
+/* 1. Header adjust */
+body.toolbar-horizontal .header {
+  top: 39px !important;
+}
+
+body.toolbar-horizontal.toolbar-tray-open .header {
+  top: 79px !important;
+}
+
+@media (max-width: 600px) {
+  body.toolbar-horizontal .header {
+    top: 0 !important;
+  }
+}
+
+/* 2. Body Padding adjust. */
+body.toolbar-horizontal {
+  padding-top: 120px !important;
+}
+
+body.toolbar-horizontal.toolbar-tray-open {
+  padding-top: 160px !important;
+}
+
+/* * Carousel Styles (Swiper Adaptation) */
+.js-carousel-wrapper {
+  position: relative;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  height: auto;
+  display: flex;
+  width: 100%;
+  padding: 0 15px;
+  @media (min-width: 768px) {
+    padding: 0 60px;
+  }
+}
+
+.carousel-arrow {
+  @apply w-[50px] h-[50px] rounded-full border border-gray-300 flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-itc-dark-gray hover:bg-gray-50 bg-white text-itc-black select-none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  /* FIX: Ensure high z-index and explicit interaction */
+  z-index: 500 !important;
+  pointer-events: auto !important;
+
+  &.swiper-button-disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
+
+/* === User Login / Register / Password Reset Page Styles === */
+/* 1. Background and layout */
+body.path-user {
+  @apply bg-gray-50;
+
+  .layout-container, .region-content {
+    @apply flex justify-center items-center min-h-[60vh];
+  }
+}
+
+/* 2. Card */
+#user-login-form,
+#user-register-form,
+#user-pass {
+  @apply bg-white p-8 md:p-10 rounded-2xl shadow-lg w-full max-w-[450px] mx-auto border border-gray-100;
+
+  .js-form-item {
+    @apply mb-6;
+
+    label {
+      @apply block mb-2 text-sm font-bold text-gray-700 font-['Ubuntu',sans-serif];
+
+      /* requirement *. */
+      &.js-form-required::after {
+        content: "*";
+        @apply text-itc-red ml-1;
+      }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      @apply w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-itc-red focus:border-transparent transition-all;
+    }
+
+    .description {
+      @apply text-xs text-gray-500 mt-1;
+    }
+  }
+
+  /* Submit btn */
+  .form-actions {
+    @apply mt-8;
+
+    input[type="submit"] {
+      @apply w-full btn-primary cursor-pointer text-center text-base py-3 rounded-lg shadow-md hover:shadow-lg transform active:scale-95 transition-all;
+    }
+  }
+}
+
+/* 3. (Page Title) */
+body.path-user .page-title {
+  @apply text-center text-3xl font-bold text-itc-black mb-8 font-['Ubuntu',sans-serif];
+}
+
+/* 4. (Create account / Reset password) */
+body.path-user nav.tabs {
+  @apply border-none mb-0;
+
+  ul.primary {
+    @apply justify-center gap-4;
+
+    li a {
+      @apply bg-transparent border-none text-gray-500 hover:text-itc-red hover:bg-transparent text-sm font-normal underline;
+
+      &.is-active {
+        @apply text-itc-black font-bold no-underline bg-transparent border-none;
+      }
+    }
+  }
+}

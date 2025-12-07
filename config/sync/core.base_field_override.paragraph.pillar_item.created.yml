@@ -1,0 +1,18 @@
+uuid: 45631303-317a-4449-b2fa-387d80a42019
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.pillar_item
+id: paragraph.pillar_item.created
+field_name: created
+entity_type: paragraph
+bundle: pillar_item
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created
