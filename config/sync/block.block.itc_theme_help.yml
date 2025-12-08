@@ -1,0 +1,22 @@
+uuid: d3b827b5-2ef7-4e30-86e3-219cc5f843c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - itc_theme
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: itc_theme_help
+theme: itc_theme
+region: highlighted
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

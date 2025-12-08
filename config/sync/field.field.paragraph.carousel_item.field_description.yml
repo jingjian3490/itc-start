@@ -1,0 +1,26 @@
+uuid: d972d9f7-b7ba-44ac-8c8d-a55eec326d94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - filter.format.basic_html
+    - filter.format.full_html
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - text
+id: paragraph.carousel_item.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: carousel_item
+label: Quote
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long

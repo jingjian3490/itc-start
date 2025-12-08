@@ -1,0 +1,22 @@
+uuid: 355b6730-0acb-4027-8d1a-179f724b207f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - itc_theme
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: itc_theme_content
+theme: itc_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

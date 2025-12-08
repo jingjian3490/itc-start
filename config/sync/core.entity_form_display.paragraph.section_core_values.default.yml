@@ -1,0 +1,59 @@
+uuid: 43b10a9f-ccf9-47f2-bfd5-7e8e5c7a5cb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.section_core_values.field_description
+    - field.field.paragraph.section_core_values.field_title
+    - field.field.paragraph.section_core_values.field_value_items
+    - paragraphs.paragraphs_type.section_core_values
+  module:
+    - paragraphs
+    - text
+id: paragraph.section_core_values.default
+targetEntityType: paragraph
+bundle: section_core_values
+mode: default
+content:
+  field_description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_value_items:
+    type: paragraphs
+    weight: 11
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

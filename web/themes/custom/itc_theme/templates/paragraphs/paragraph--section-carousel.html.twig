@@ -1,0 +1,52 @@
+{#
+Pattern: section_carousel
+Structure: Swiper (Main) > Swiper Wrapper > Swiper Slide
+#}
+<div class="paragraph-section-carousel bg-white py-[50px] px-[15px] md:py-[100px] md:px-[150px] overflow-hidden">
+  <div class="max-w-[1200px] mx-auto js-carousel-wrapper relative">
+
+    {# === Section Title === #}
+    {% if content.field_title|render %}
+      <div class="text-center mb-[80px] md:mb-[100px]">
+        <h2 class="font-['Ubuntu',sans-serif] font-bold text-[30px] leading-[36px] text-itc-black mb-0">
+          {{ content.field_title }}
+        </h2>
+      </div>
+    {% endif %}
+
+    {# === Swiper Area === #}
+    {# FIX: Added z-index to parent group to lift arrows above Drupal UI #}
+    <div class="relative group z-10">
+
+      {# Swiper Main Container #}
+      <div class="swiper js-carousel-container">
+        <div class="swiper-wrapper">
+          {% for key, item in content.field_carousel_items %}
+            {% if key|first != '#' %}
+              <div class="swiper-slide">
+                {{ item }}
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {# Navigation Buttons: Changed to <button> for better accessibility and event handling #}
+      {# Prev Button #}
+      <button type="button" class="js-carousel-prev carousel-arrow left-0 hidden md:flex focus:outline-none" aria-label="Previous slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+      </button>
+
+      {# Next Button #}
+      <button type="button" class="js-carousel-next carousel-arrow right-0 hidden md:flex focus:outline-none" aria-label="Next slide">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </button>
+
+    </div>
+
+  </div>
+</div>
